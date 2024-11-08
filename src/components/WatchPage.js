@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { closeMenu } from "../utility/appSlice";
+
 import { useSearchParams } from "react-router-dom";
 import CommentContainer from "./CommentContainer";
 import LiveChat from "./LiveChat";
 
 const WatchPage = ()=>{
     const [searchParams] = useSearchParams();
-    const [text, setText] = useState("")
-    console.log(searchParams.get("v"))
+        console.log(searchParams.get("v"))
     const dispatch = useDispatch();
     useEffect(()=>{
         dispatch(closeMenu());
@@ -30,21 +30,7 @@ const WatchPage = ()=>{
             </div>
 
             <div className="w-full">
-                <LiveChat/>
-            <form className="border border-black w-full ml-2 p-2 flex rounded-lg" onSubmit={(e)=>{
-            e.preventDefault();
-
-            dispatch(addMessage({
-                    name: "Rakksher",
-                    message: Text,
-                })
-            )
-            }}>   
-                <input className="border border-black w-72" type="text" value={text} onChange={(e)=>{
-                 setText(e.target.value)
-                 }}/>
-                <button className="bg-slate-300 px-4 mx-2">send</button>
-                  </form>
+    <LiveChat/>
             </div>
             </div>
             <CommentContainer/>
